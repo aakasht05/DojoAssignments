@@ -1,7 +1,7 @@
 var _ = {
     map: function (arr, cb) {
         for (let i = 0; i < arr.length; i++) {
-            arr[i] = cb(arr[i]);
+            arr[i] = cb(arr[i], i);
         }
         return arr;
     },
