@@ -39,18 +39,54 @@ var server = http.createServer(function (request, response) {
             response.write(contents);
             response.end();
         })
-    } else if (request.url === '/images/cars.jpg') {
+    } else if (request.url === '/images/cars1.jpg') {
         // notice we won't include the utf8 encoding
-        fs.readFile('./images/cars.jpg', function (errors, contents) {
+        fs.readFile('./images/cars1.jpg', function (errors, contents) {
             response.writeHead(200, {
                 'Content-type': 'image/jpg'
             });
             response.write(contents);
             response.end();
         })
-    } else if (request.url === '/images/cats.jpg') {
+    } else if (request.url === '/images/cars2.jpg') {
         // notice we won't include the utf8 encoding
-        fs.readFile('./images/cats.jpg', function (errors, contents) {
+        fs.readFile('./images/cars2.jpg', function (errors, contents) {
+            response.writeHead(200, {
+                'Content-type': 'image/jpg'
+            });
+            response.write(contents);
+            response.end();
+        })
+    } else if (request.url === '/images/cars3.jpg') {
+        // notice we won't include the utf8 encoding
+        fs.readFile('./images/cars3.jpg', function (errors, contents) {
+            response.writeHead(200, {
+                'Content-type': 'image/jpg'
+            });
+            response.write(contents);
+            response.end();
+        })
+    } else if (request.url === '/images/cats1.jpg') {
+        // notice we won't include the utf8 encoding
+        fs.readFile('./images/cats1.jpg', function (errors, contents) {
+            response.writeHead(200, {
+                'Content-type': 'image/jpg'
+            });
+            response.write(contents);
+            response.end();
+        })
+    }else if (request.url === '/images/cats2.jpg') {
+        // notice we won't include the utf8 encoding
+        fs.readFile('./images/cats2.jpg', function (errors, contents) {
+            response.writeHead(200, {
+                'Content-type': 'image/jpg'
+            });
+            response.write(contents);
+            response.end();
+        })
+    }else if (request.url === '/images/cats3.jpg') {
+        // notice we won't include the utf8 encoding
+        fs.readFile('./images/cats3.jpg', function (errors, contents) {
             response.writeHead(200, {
                 'Content-type': 'image/jpg'
             });
