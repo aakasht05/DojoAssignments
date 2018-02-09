@@ -15,7 +15,13 @@ app.get("/", function(request, response){
 });
 
 app.post("/result", function(request, response){
-    response.render("results",{name: request.body.name, location: request.body.location, language: request.body.language, comment: request.body.comment} )
+    let results = {
+        name: request.body.name,
+        location: request.body.location,
+        language: request.body.language,
+        comment: request.body.comment,
+    }
+    response.render("results",{results});
 });
 
 app.get("/goback", function(request, response){
