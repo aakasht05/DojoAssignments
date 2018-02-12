@@ -14,14 +14,14 @@ app.get("/", function(request, response){
     response.render("index");
 });
 
-app.post("/result", function(request, response){
-    let results = {
+app.post("/results", function(request, response){
+    var results = {
         name: request.body.name,
         location: request.body.location,
         language: request.body.language,
         comment: request.body.comment,
     }
-    response.render("results",{results});
+    response.render("results", {result: results});
 });
 
 app.get("/goback", function(request, response){
