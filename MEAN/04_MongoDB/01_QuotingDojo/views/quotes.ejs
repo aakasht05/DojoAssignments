@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quotes</title>
+    </head>
+
+    <body>
+        
+        <h1>Here are the awesome quotes!</h1>
+        <%if(typeof(quote) != "undefined"){%>
+            <% for(let x in quote) {%>
+                <% console.log(quote)%>
+                <h3>"<%= quote[x].quote %>"</h3>
+                <h5><%= quote[x].name %> at <%= quote[x].createdAt.toLocaleTimeString() %> <%= quote[x].createdAt.toDateString() %> <h5>
+                <hr>
+            <% } %>
+        <% } %>
+        <a href="/"><button>Go Back</button></a>
+    </body>
+</html>
+
