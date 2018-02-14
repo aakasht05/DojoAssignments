@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>This is the dashboard</h1>
+    <table border="1px">
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Color</td>
+            <td>Actions</td>
+        </tr>
+
+        <% for(let x in chipmunk) {%>
+            <tr>
+                <td>
+                    <%= chipmunk[x].name %>
+                </td>
+                <td>
+                    <%= chipmunk[x].age %>
+                </td>
+                <td>
+                    <%= chipmunk[x].color %>
+                </td>
+                <td>
+                    <a href="/chipmunk/<%= chipmunk[x].id %>">Show</a>
+                    <a href="/chipmunk/edit/<%= chipmunk[x].id %>">Edit</a>
+                    <a href="/chipmunk/destroy/<%= chipmunk[x].id %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/chipmunk/new">Add a Chipmunk</a>
+</body>
+
+</html>
