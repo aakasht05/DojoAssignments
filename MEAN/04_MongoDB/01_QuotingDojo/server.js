@@ -7,26 +7,15 @@ app.use(express.static(__dirname + "/static"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb://localhost/quoting_dojo")
+mongoose.connect("mongodb://localhost/quoting_dojo");
 
 var Quote = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 4
-    },
-    quote: {
-        type: String,
-        required: true,
-        minlength: 10
-    }
-}, {
-    timestamps: true
-});
+    name: {type: String,required: true,minlength: 4},
+    quote: {type: String,required: true,minlength: 10}}, 
+    {timestamps: true}
+);
 
 mongoose.model("Quote", Quote);
 var Quote = mongoose.model("Quote");
@@ -37,9 +26,7 @@ app.get("/", function (request, response) {
 
 app.get("/quotes", function (request, response) {
     Quote.find({}, function (err, quotes) {
-        response.render("quotes", {
-            quote: quotes
-        })
+        response.render("quotes", {quote: quotes})
     });
 });
 
