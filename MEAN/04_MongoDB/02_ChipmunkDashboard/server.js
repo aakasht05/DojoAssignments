@@ -79,6 +79,6 @@ app.post("/chipmunk/:id", function(request,response){
     });
 });
 
-app.listen(9001, function () {
-    console.log("IT'S OVER 9000! (Listening on port 9001)")
+app.listen(9000, function () {
+    console.log("Listening on port 9000")
 });

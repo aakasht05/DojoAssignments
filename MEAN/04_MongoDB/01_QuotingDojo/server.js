@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var app = express();
 var mongoose = require("mongoose");
+var app = express();
 
 app.use(express.static(__dirname + "/static"));
 app.set("views", __dirname + "/views");
@@ -46,6 +46,6 @@ app.post("/addQuote", function (request, response) {
     });
 });
 
-app.listen(9001, function () {
-    console.log("IT'S OVER 9000! (Listening on port 9001)");
+app.listen(9000, function () {
+    console.log("Listening on port 9000");
 });
