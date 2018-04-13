@@ -1,0 +1,57 @@
+*{
+    color: white;
+}
+
+.container{
+    margin: 2.5%;
+    padding: 0%;
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+input,button{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.playerDiv{
+    margin: 2.5%;
+    padding: 2.5%;
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
+}
+.playerDiv h2{
+    margin: 2.5%;
+    display: inline-block;
+}
+.playerDiv a{
+    color: white;
+}
+/*
+
+.playerDiv{
+    margin: 0;
+    padding: 0%;
+    width: 100%;
+    height: 14vh;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+}
+*/
+
+.playerTable{
+    background-color: rgba(0,0,0,0);
+}
+
+.playerTable tr{
+    background-color: rgba(0,0,0,0);
+}
+
+.undecided{
+    background-color: yellow;
+}
+.notplaying{
+    background-color: red
+}
+.playing{
+    background-color: green;
+}

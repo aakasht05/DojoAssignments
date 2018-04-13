@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    <p class="err success">
+        The email you entered {{request.session.email}}
+        is valid. Thank you!
+    </p>
+
+    <h3>Usernames Entered:</h3>
+
+    <table>
+        <tr>
+            <td>Email</td>
+            <td>Registered At</td>
+        </tr>
+
+        {% for user in users %}
+            <tr>
+                <td>{{user.email}}</td>
+                <td>{{user.created_at}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

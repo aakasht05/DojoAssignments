@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/css/style.css' %}">
+    <script type="text/javascript" src="{% static 'app_main/js/main.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">
+                  Test App
+              </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a class="active" href="/users/edit">Profile</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/signout">Log Off</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                  <li><h3>Edit Profile</h3></li>
+                </ul>
+            </div>
+        </nav>
+
+        {% for message in messages %}       
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% elif 'success' in message.tags %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+
+        <form action="/users/edit/updateprofile" method="post" class="form navbar-left">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" name="email" class="form-control" value="{{ user.email }}" id="email">
+            </div>
+
+            <div class="form-group">
+              <label for="first_name">First Name:</label>
+              <input type="text" name="first_name" class="form-control" value="{{ user.first_name }}" id="first_name">
+            </div>
+
+            <div class="form-group">
+              <label for="last_name">Last Name:</label>
+              <input type="text" name="last_name" class="form-control" value="{{ user.last_name }}" id="last_name">
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea class="form-control" value="{{ user.description }}" name="description" id="description">
+              </textarea>
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-success"></input>
+        </form>
+
+        <form action="/users/edit/updatepassword" method="post" class="form navbar-right">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" name="password" class="form-control" id="pwd">
+            </div>
+
+            <div class="form-group">
+              <label for="confirm">Password Confirmation:</label>
+              <input type="password" name="confirm" class="form-control" id="confirm">
+            </div>
+
+            <input type="submit" value="Update Password" class="btn btn-success"></input>
+        </form>
+    </div>
+</body>
+</html>

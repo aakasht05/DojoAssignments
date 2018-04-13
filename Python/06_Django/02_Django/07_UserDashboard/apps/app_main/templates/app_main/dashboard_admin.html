@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/css/style.css' %}">
+    <script type="text/javascript" src="{% static 'app_main/js/main.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">
+                  Test App
+              </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/users/edit">Profile</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/signout">Log Off</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% for message in messages %}       
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% elif 'success' in message.tags %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+
+        <nav class="navbar">
+            <div class="container-fluid">
+
+                <ul class="nav navbar-nav">
+                  <li><h3>Manage Users</h3></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a class="btn btn-primary" href="/users/new">Add New</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>User Level</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td><a href="/users/show/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.created_at.date}}</td>
+
+                    {% if user.level > 0 %}
+                        <td>Admin</td>
+                    {% else %}
+                        <td>User</td>
+                    {% endif %}
+
+                    <td>
+                        <a href="/users/edit/{{user.id}}">
+                            edit
+                        </a>
+
+                        <a class="remove_user" user_id="{{user.id}}" href="#">remove</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

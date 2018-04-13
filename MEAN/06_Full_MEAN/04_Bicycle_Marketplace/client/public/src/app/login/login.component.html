@@ -1,0 +1,135 @@
+<div class="container">
+    <!-- Begin Login -->
+    <div class="ilb container">
+        <form class="form-horizontal" (submit)="onLogin()" #loginForm=ngForm>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+
+                <div class="col-sm-10">
+                    <input
+                        required
+                        type="email" 
+                        id="email" 
+                        class="form-control"
+                        name="email"
+                        [(ngModel)]="userLogin.email"
+                        #userLogin_email="ngModel"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="password">Password:</label>
+
+                <div class="col-sm-10">
+                    <input 
+                        required
+                        type="password"
+                        id="password" 
+                        class="form-control" 
+                        name="password"
+                        [(ngModel)]="userLogin.password"
+                        #userLogin_password="ngModel"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <div class="col-sm-12">
+                    <button [disabled]="loginForm.invalid" type="submit" class="form-control btn btn-default" [ngClass]="{'alert-success':loginForm.valid,'alert-danger':loginForm.invalid}">Login</button>
+                </div>
+            </div>
+
+            <div *ngIf="userLogin_email.errors && (userLogin_email.touched || userLogin_email.dirty)" class="alert alert-danger">
+                Email is required.
+            </div>
+            <div *ngIf="userLogin_password.errors && (userLogin_password.touched || userLogin_password.dirty)" class="alert alert-danger">
+                Password is required.
+            </div>
+
+            <div *ngFor="let error of user$.source._value.errors">
+                <div *ngIf="userLogin_password.touched || userLogin_password.dirty || userLogin_email.touched || userLogin_email.dirty" class="alert alert-danger">
+                    {{error}}
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Login -->
+    <!-- Begin Register -->
+    <div class="ilb container">
+        <form class="form-horizontal" (submit)="onRegister()" #registerForm=ngForm>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="firstName">First Name:</label>
+
+                <div class="col-sm-10">
+                    <input required type="text" id="firstName" class="form-control" name="firstName" [(ngModel)]="userRegister.firstName" #userRegister_firstName="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+
+                <div class="col-sm-10">
+                    <input required type="lastName" id="lastName" class="form-control" name="lastName" [(ngModel)]="userRegister.lastName" #userRegister_lastName="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+
+                <div class="col-sm-10">
+                    <input required type="email" id="email" class="form-control" name="email" [(ngModel)]="userRegister.email" #userRegister_email="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="password">Password:</label>
+
+                <div class="col-sm-10">
+                    <input required type="password" id="password" class="form-control" name="password" [(ngModel)]="userRegister.password" #userRegister_password="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="confirm">Password Confirmation:</label>
+
+                <div class="col-sm-10">
+                    <input required type="password" id="confirm" class="form-control" name="confirm" [(ngModel)]="userRegister.confirm" #userRegister_confirm="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <div class="col-sm-12">
+                    <button [disabled]="registerForm.invalid" type="submit" class="form-control btn btn-default" [ngClass]="{'alert-success':registerForm.valid,'alert-danger':registerForm.invalid}">Register</button>
+                </div>
+            </div>
+        </form>
+
+        <div *ngIf="userRegister_firstName.errors && (userRegister_firstName.touched || userRegister_firstName.dirty)" class="alert alert-danger">
+            First Name is required.
+        </div>
+
+        <div *ngIf="userRegister_lastName.errors && (userRegister_lastName.touched || userRegister_lastName.dirty)" class="alert alert-danger">
+            Last Name is required.
+        </div>
+
+        <div *ngIf="userRegister_email.errors && (userRegister_email.touched || userRegister_email.dirty)" class="alert alert-danger">
+            Email is required.
+        </div>
+
+        <div *ngIf="userRegister_password.errors && (userRegister_password.touched || userRegister_password.dirty)" class="alert alert-danger">
+            Password is required.
+        </div>
+
+        <div *ngIf="userRegister_confirm.errors && (userRegister_confirm.touched || userRegister_confirm.dirty)" class="alert alert-danger">
+            Password Confirmation is required.
+        </div>
+
+        <div *ngFor="let error of regErrs">
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+        </div>
+    </div>
+    <!-- End Register -->
+</div>

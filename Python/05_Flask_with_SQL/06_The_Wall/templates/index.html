@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login and Registration</title>
+    <link rel="stylesheet" type="text/css" href="{{style}}">
+</head>
+<body>
+    <div class="nav">
+        <button><a href="/login">Login</a></button>
+    </div>
+
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {% for msg in msgs %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form class="grey" action="/process" method="post">
+        <label class="formLabel">First Name:</label><input type="text" name="first_name">
+        <label class="formLabel">Last Name:</label><input type="text" name="last_name">
+        <label class="formLabel">E-mail:</label><input type="text" name="email">
+        <label class="formLabel">Password:</label><input type="password" name="password">
+        <label class="formLabel">Confirm Password:</label><input type="password" name="confirm">
+
+        <input id="sub" type="submit" name="">
+    </form>
+</body>
+</html>

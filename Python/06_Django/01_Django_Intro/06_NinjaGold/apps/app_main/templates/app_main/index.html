@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <label>Your Gold: {{request.session.gold}}</label>
+
+        <form class="col-sm-5" action="/process/1" method="post">
+            {% csrf_token %}
+            <h3>Farm</h3>
+
+            <p>(earns 10-20 gold.)</p>
+
+            <input type="submit" value="Find Gold!">
+        </form>
+
+        <form class="col-sm-5" action="/process/2" method="post">
+            {% csrf_token %}
+            <h3>Cave</h3>
+
+            <p>(earns 5-10 gold.)</p>
+
+            <input type="submit" value="Find Gold!">
+        </form>
+
+        <form class="col-sm-5" action="/process/3" method="post">
+            {% csrf_token %}
+            <h3>House</h3>
+
+            <p>(earns 2-5 gold.)</p>
+
+            <input type="submit" value="Find Gold!">
+        </form>
+
+        <form class="col-sm-5" action="/process/4" method="post">
+            {% csrf_token %}
+            <h3>Casino</h3>
+
+            <p>(earns/takes 0-50 gold.)</p>
+
+            <input type="submit" value="Find Gold!">
+        </form>
+
+        <label class="col-sm-5">Activities:</label>
+        <textarea>{{request.session.results}}</textarea>
+    <div class="container">
+</body>
+</html>

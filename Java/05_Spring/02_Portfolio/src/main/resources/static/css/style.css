@@ -1,0 +1,42 @@
+*{
+	text-align: center;
+	color: rgba(255,255,255,0.5);
+}
+
+body{
+	background-color: rgb(32,32,32);
+}
+
+.cont{
+	display: inline-block;
+	width: 25%;
+	margin: 32px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.cont2{
+	display: block;
+	width: 25%;
+	margin: 16px auto;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.flex{
+	display:flex;
+	width: 50%;
+	margin: auto;
+}
+
+.box{
+	width:  256px;
+	height: 256px;
+	margin: 32px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.boxEnlarge{
+	width:  384px;
+	height: 384px;
+	margin: 32px;
+	background-color: rgba(0,0,0,0.5);
+}

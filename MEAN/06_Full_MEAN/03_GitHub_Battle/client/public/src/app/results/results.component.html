@@ -1,0 +1,20 @@
+<div class="container flex nopadding">
+    <div class="container trans">
+        <h1 class="green">1st place</h1>
+        <h3 *ngIf="playerOne$.source._value.score > playerTwo$.source._value.score" class="green">
+            {{playerOne$.source._value.score}} (Score: {{playerOne$.source._value.score}})
+        </h3>
+        <h3 *ngIf="playerTwo$.source._value.score > playerOne$.source._value.score" class="green">
+            {{playerTwo$.source._value.score}} (Score: {{playerTwo$.source._value.score}})
+        </h3>
+
+
+        <h1 class="red">2nd place</h1>
+        <h3 *ngIf="playerOne$.source._value.score < playerTwo$.source._value.score" class="red">
+            {{playerOne$.source._value.score}} (Score: {{playerOne$.source._value.score}})
+        </h3>
+        <h3 *ngIf="playerTwo$.source._value.score < playerOne$.source._value.score" class="green">
+            {{playerTwo$.source._value.score}} (Score: {{playerTwo$.source._value.score}})
+        </h3>
+    </div>  
+</div>

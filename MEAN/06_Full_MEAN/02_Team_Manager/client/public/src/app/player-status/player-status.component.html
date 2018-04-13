@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="playerDiv">
+        <h2>Player Status</h2>
+    </div>
+
+    <div class="playerDiv">
+        <table class="playerTable table table-bordered table-striped">
+            <tr>
+                <td>Player Name</td>
+                <td>Action</td>
+            </tr>
+
+            <tr *ngFor="let player of players$ | async">
+                <td>{{player.name}}</td>
+
+                <td>
+                    <button (click)="onClick(player,2)" 
+                        [ngClass]="{'playing':player.status==2}" 
+                        class="btn btn-default">Playing
+                    </button>
+
+                    <button (click)="onClick(player,1)"
+                        [ngClass]="{'notplaying':player.status==1}" 
+                        class="btn btn-default">Not Playing
+                    </button>
+
+                    <button (click)="onClick(player,0)"
+                        [ngClass]="{'undecided':player.status==0}" 
+                        class="btn btn-default">Undecided
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

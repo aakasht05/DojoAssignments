@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-mail Validation</title>
+    <link rel="stylesheet" type="text/css" href="{{style}}">
+</head>
+<body>
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {% for msg in msgs %}
+                <p class="flash red">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/process" method="post">
+        <label>Email Address:</label><input type="text" name="email">
+        <input type="submit" name="">
+    </form>
+</body>
+</html>

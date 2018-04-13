@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book and Review</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <button><a href="/">Logout</a></button>
+        <button><a href="/books">Home</a></button>
+    </div>
+
+    <p class="heading"><!-- 
+        Lets do it this way, so we dont have to pass a whole extra query to context --> 
+        {{ reviews.0.book.title }}
+        <br>
+        Author: {{ reviews.0.book.author.first_name }} 
+        {{ reviews.0.book.author.last_name }}
+    </p>
+
+    <div class="leftDiv">
+        <p class="heading">Reviews</p>
+        {% for review in reviews %}
+            <div class="form post">
+                <p class="inlineBlock">Rating:</p>
+                {% for i in review.stars %}
+                    <img class="star inlineBlock" src="/static/app_main/img/star_gold.png">
+                {% endfor %}
+                
+                <br><br>
+                
+                <a class="inlineBlock" href="/users/{{ review.user_id }}">
+                    {{ review.user.first_name }} says:
+                </a>
+                <p>{{ review.text }}</p>
+
+                <br>
+
+                <p>Posted on {{ review.created_at.date }}</p>
+
+                {% if review.user_id == request.session.id %}
+                <a class="inlineBlock" href="/books/remove/{{ review.id }}">Delete this review</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="rightDiv">
+        <p class="heading">Add a review</p>
+
+        <div class="form post">
+            <form action="/books/new" method="post">
+                {% csrf_token %}
+
+                <span class="span">Review:</span>
+                <textarea name="text" class="textarea"></textarea>
+
+                <label>Rating:</label>
+                <select id="rating" name="rating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <label>stars</label>
+
+                <input class="submit" type="submit" value="Add Book and Review">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

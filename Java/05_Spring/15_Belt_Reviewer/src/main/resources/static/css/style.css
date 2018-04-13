@@ -1,0 +1,42 @@
+#logout{
+	font-size: 16pt;
+	float: right;
+}
+
+.container{
+	margin-top: 5%;
+}
+
+.left{
+	width: 40%;
+	display: inline-block;
+	margin: 2.5%;
+}
+
+.right{
+	width: 40%;
+	display: inline-block;
+	vertical-align: top; 
+	margin: 2.5%;
+}
+
+.center{
+	text-align:center;
+	padding: 16px;	
+}
+
+#ringsofpower{
+	display: inline-block;
+	width: 25%;
+}
+
+.ringForm{
+	display: inline-block;
+	width: 50%;
+}
+
+.floatRight{float:right;}
+
+.medFont{
+	font-size: 16pt;
+}

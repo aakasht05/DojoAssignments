@@ -1,0 +1,162 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: rgba(255,255,255,0.5);
+    font-size: 14pt;
+}
+
+body{
+    background-color: rgb(32,32,32)
+}
+
+.cont{
+    width: 95%;
+    margin-left: 3%;
+}
+
+.form{
+    background-color: rgba(0,0,0,0.5);
+    display: inline-block;
+    width: 40%;
+    margin:  3.5%;
+    padding: 16px;
+    vertical-align: top;
+    border: 1px solid black;
+}
+
+.form label{
+    width: 30%;
+    height: 32px;
+    display: inline-block;
+}
+
+.form input{
+    width: 65%;
+    background: linear-gradient(rgba(96,96,96,0.5),rgba(0,0,0,0.5));
+    border: 0;
+}
+
+.form select{
+    width: 65%;
+    background: linear-gradient(rgba(96,96,96,0.5),rgba(0,0,0,0.5));
+    border: 0;
+}
+
+.submit{
+    height: 32px;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(255,255,255,0.5));
+    display: block;
+    margin: 16px auto;
+}
+
+.error{
+    text-align: center;
+    background-color: rgba(255,0,0,0.75);
+    height: 32px;
+    width: 25%;
+    margin: 8px auto;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.success{
+    text-align: center;
+    background-color: rgba(0,255,0,0.75);
+    height: 32px;
+    width: 25%;
+    margin: 8px auto;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.nav{
+    display: block;
+    height: 64px;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid black;
+}
+.nav p{
+    padding: 16px;
+    display: inline-block;
+}
+.nav button{
+    display: inline-block;
+    float: right;
+    margin: 16px;
+    height: 32px;
+    padding: 8px;
+    background: linear-gradient(rgba(96,96,96,0.5),rgba(0,0,0,0.5));
+    border: 0;
+}
+.nav button a{
+    text-decoration: none;
+}
+.post{
+    display: block;
+    width: 75%;
+    margin: 2.5% auto;
+}
+
+.textarea{
+    resize: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 128px;
+    background: linear-gradient(rgba(96,96,96,0.5),rgba(0,0,0,0.5));
+    border: 1px solid black;
+}
+
+.heading{
+    font-size: 24pt;
+    text-align: center;
+    margin: 2%;
+}
+
+.bold{font-weight: bold;}
+.unbold{
+    font-weight: normal;
+}
+
+.center{
+    display: block;
+    width: 25%;
+    margin: 3% auto;
+}
+
+.inlineBlock{
+    display: inline-block;
+}
+
+.block{
+    display: block;
+}
+
+.span{
+    display: block;
+    margin: 1% 0;
+}
+
+#rating{
+    width: 64px;
+    margin-right: 16px;
+}
+
+.leftDiv{
+    display: inline-block;
+    width: 40%;
+    margin-left: 10%;
+}
+
+.rightDiv{
+    display: inline-block;
+    float: right;
+    width: 40%;
+    margin-right: 10%;
+}
+
+.star{
+    height: 24px;
+    padding:0;
+    vertical-align: bottom;
+}

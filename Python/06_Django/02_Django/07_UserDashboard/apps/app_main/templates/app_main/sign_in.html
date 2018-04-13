@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">
+                  Test App
+              </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/signin">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% for message in messages %}       
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% elif 'success' in message.tags %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+
+        <h2>Sign In</h2>
+
+        <form class="form" action="/sign_in_process" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="email">
+          </div>
+
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" name="password">
+          </div>
+
+          <input type="submit" value="Sign In" id="sub" class="btn btn-success"></input>
+
+          <h4>
+             <a href="/register">Dont have an account? Register</a>
+          </h4>
+
+          </form>
+    </div>
+</body>
+</html>

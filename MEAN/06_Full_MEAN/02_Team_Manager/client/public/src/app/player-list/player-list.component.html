@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="playerDiv">
+        <h2><a [routerLink]="['/']">List</a></h2>
+        <h2><a [routerLink]="['/players/new']">Add Player</a></h2>
+    </div>
+
+    <div class="playerDiv">
+        <table class="playerTable table table-bordered table-striped">
+            <tr>
+                <td>Player Name</td>
+                <td>Position</td>
+                <td>Action</td>
+            </tr>
+
+            <tr *ngFor="let player of players$ | async">
+                <td>{{player.name}}</td>
+                <td>{{player.position}}</td>
+                <td><a (click)="onDelete(player._id)">Delete</a></td>
+            </tr>
+        </table>
+        
+    </div>
+
+</div>

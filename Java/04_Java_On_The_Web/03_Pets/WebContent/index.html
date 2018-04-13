@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Index</title>
+		<link href="${pageContext.request.contextPath}/static/style.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	
+	<body>
+	    <h1>Dog</h1>
+        <form method="get" action="/Pets/animals/dog">
+            <p>Name</p><input name="name" value="" type="text"></input>
+            <p>Breed</p><input name="breed" value="" type="text"></input>
+            <p>Weight</p><input name="weight" value="" type="text"></input>
+            <input type="submit"></input>
+        </form>
+
+        <h1>Cat</h1>        
+        <form method="get" action="/Pets/animals/cat">
+			<p>Name</p><input name="name" value="" type="text"></input>
+			<p>Breed</p><input name="breed" value="" type="text"></input>
+			<p>Weight</p><input name="weight" value="" type="text"></input>
+            <input type="submit"></input>
+        </form>
+	</body>
+</html>

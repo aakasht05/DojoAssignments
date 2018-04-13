@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Information</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">
+                  Test App
+              </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a class="active" href="/users/edit">Profile</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/signout">Log Off</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% for message in messages %}       
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% elif 'success' in message.tags %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <br>
+        <h4>Registered At: {{user.created_at.date}}</h4>
+        <h4>User ID: {{user.id}}</h4>
+        <h4>Email Address: {{user.email}}</h4>
+        <h4>Description: {{user.description}}</h4>
+
+        <h2>Leave a message for {{user.first_name}}</h2>
+        <br>
+        <form action="/users/show/{{user.id}}/post" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <textarea class="form-control" name="text" id="description"></textarea>
+            </div>
+
+            <input class="btn btn-success" type="submit" value="Post">
+        </form>
+        <br><br>
+        {% for post in posts %}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{post.user.first_name}} wrote:
+                    <p class="pull-right">{{post.created_at.date}}</p>
+                </div>
+                <div class="panel-body"><p class="wrap">{{post.text}}<p></div>
+            </div>
+
+            {% for comment in comments %}
+                {% if comment.post.id == post.id %}
+                    <div class="panel panel-primary comment">
+                        <div class="panel-heading">
+                            {{comment.user.first_name}} {{comment.user.last_name}} wrote:
+                            <p class="pull-right">
+                                {{comment.created_at.date}}
+                            </p>
+                        </div>
+
+                        <div class="panel-body">
+                            <p class="wrap">{{comment.text}}<p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <form action="/users/show/{{user.id}}/post/{{post.id}}" method="post">
+                {% csrf_token %}
+                <textarea class="form-control comment" name="text"></textarea>
+                <br>
+                <input class="btn btn-success comment commentBtn" type="submit" value="Comment">
+            </form>
+            <br>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

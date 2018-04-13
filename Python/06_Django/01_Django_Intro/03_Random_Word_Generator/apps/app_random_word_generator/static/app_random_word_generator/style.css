@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    width: 50%;
+    margin: auto;
+}
+
+.text{
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    display: block;
+    padding: 16px;
+}

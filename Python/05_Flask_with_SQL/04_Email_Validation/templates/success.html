@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success!</title>
+    <link rel="stylesheet" type="text/css" href="{{style}}">
+</head>
+<body>
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {% for msg in msgs %}
+                <p class="flash green">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <p>Email Addresses Entered:</p>
+    <table>
+        <tr>
+            <td>Email</td>
+            <td>Time</td>
+        </tr>
+
+        {% for i in session['emails'] %}
+            <tr>
+                <td>{{i['name']}}</td>
+                <td>{{i['created_at']}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

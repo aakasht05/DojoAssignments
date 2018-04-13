@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Game</title>
+</head>
+<body>
+    <h1>Guess a number between 1-100</h1>
+    <h2>Your guess:{{session["guess"]}}</h2>
+    <h2>Random Number: {{session["rand"]}}</h2>
+    <h2>{{session["res"]}}</h2>
+
+
+    <form action="/submit" method="post">
+        <input type="text" name="guess">
+        <input type="submit" name="sub">
+    </form>
+</body>
+</html>

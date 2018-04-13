@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Wall</title>
+    <link rel="stylesheet" type="text/css" href="{{style}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{js}}"></script>
+</head>
+<body>
+    <div class="nav">
+        <button><a href="/">Logout</a></button>
+    </div>
+
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {% for msg in msgs %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="grey">
+        <form action="/post" method="post">
+            <p>Post a message</p>
+            <textarea class="postArea" name="message"></textarea>
+            <input id="sub" type="submit" value="Post a message">
+        </form>
+    </div>
+
+    {% for message in messages %}
+        <div class="grey message">
+            <h1 class="postTitle">
+                {{ message['first_name'] }} 
+                {{ message['last_name'] }}
+                {{ message['created_at'] }}
+            </h1>
+
+            <p class="post">{{ message['message'] }}</p>
+
+            {% for comment in comments %}
+                {% if comment['message_id'] == message['id'] %}
+                    <h1 class="commentTitle">
+                        {{ comment['first_name'] }} 
+                        {{ comment['last_name'] }}
+                        {{ comment['created_at'] }}
+                    </h1>
+
+                    <p class="comment">
+                        {{ comment['comment'] }} 
+                    </p>
+                {% endif %}
+            {% endfor %}
+
+            <form class="commentForm" action="/comment/{{message['id']}}" method="post">
+                <textarea class="commentArea" name="comment"></textarea>
+                <input class="subComment" type="submit" value="Comment">
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>

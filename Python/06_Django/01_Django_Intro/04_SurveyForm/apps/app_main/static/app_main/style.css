@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(32,32,32);
+}
+
+form{
+    width: 75%;
+    margin: auto;
+    background-color: rgba(0,0,0,0.5);
+    padding: 12px;
+}
+
+form label{
+    color: white;
+    font-size: 16pt;
+    width: 40%;
+    display: inline-block;
+    margin: 2.5% 8%;
+}
+
+.cont{
+    display: inline-block;
+    width: 30%;
+    padding: 8px;
+    font-size: 16pt;
+}
+
+.btn{
+    display: block;
+    margin: auto;
+    margin-bottom: 24px;
+}
+
+h2{
+    color: white;
+    font-size: 16pt;
+    width: 40%;
+    display: inline-block;
+    margin: 2.5% 8%;
+
+}

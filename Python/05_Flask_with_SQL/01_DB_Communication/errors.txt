@@ -1,0 +1,12 @@
+OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+
+^ Invalid password. Used correct password.
+
+  File "/home/py/Desktop/DojoAssignments/Python/Flask_MySQL/db_communication/mysqlconnection.py", line 8, in __init__
+    'database': pp, # we got db as an argument
+
+^ Invalid DB. Uses correct database
+
+
+
+

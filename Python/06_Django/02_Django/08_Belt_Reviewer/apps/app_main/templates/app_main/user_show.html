@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Reviews</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <p>Welcome, {{ request.session.first_name }}</p>
+        <button><a href="/books">Home</a></button>
+        <button><a href="/">Logout</a></button>
+        <button><a href="/books/add">Add Book and Review</a></button>
+    </div>
+
+    <div class="leftDiv">
+        <div class="form post">
+            <p class="heading">User Alias: {{ reviews.0.user__first_name }}</p>
+            <br>
+            <p>
+                Name: {{ reviews.0.user__first_name }} {{ reviews.0.user__last_name }}
+            </p>
+            <br>
+            <p>
+                Email: {{ reviews.0.user__email }}
+            </p>
+            <br>
+            <p>
+                Total Reviews: {{ reviews.0.user__reviews }}
+            </p>
+            <br><br>
+            <p>Posted reviews on the following books:</p>
+            <br>
+            {% for review in reviews %}
+                <a class="block" href="/books/{{ review.book_id }}">
+                    {{ review.book__title }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

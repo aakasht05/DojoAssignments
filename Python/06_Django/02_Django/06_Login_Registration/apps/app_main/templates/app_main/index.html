@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login % Reg | Home</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+        <p class="err">{{message}}</p>
+    {% endfor %}
+
+    <form action="/register" method="post">
+        {% csrf_token %}
+        <h1 class="heading">Registration</h1>
+
+        <label class="formLabel">First Name:</label>
+        <input type="text" name="first_name">
+
+        <label  class="formLabel">Last Name:</label>
+        <input type="text" name="last_name">
+
+        <label  class="formLabel">Email:</label>
+        <input type="text" name="email">
+
+        <label  class="formLabel">Password:
+            
+        </label>
+        <input type="password" name="password">
+
+        <label  class="formLabel">Confirm Password:
+        </label>
+        <input type="password" name="confirm">
+
+        <input class="submit" type="submit" value="Register">
+    </form>
+
+    <form action="/login" method="post">
+        {% csrf_token %}
+        <h1 class="heading">Login</h1>
+        
+        <label  class="formLabel">Email:</label>
+        <input type="text" name="email">
+
+        <label  class="formLabel">Password:</label>
+        <input type="password" name="password">
+
+        <input class="submit" type="submit" value="Login">
+    </form>
+</body>
+</html>

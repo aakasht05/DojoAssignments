@@ -1,0 +1,28 @@
+.container{
+    background-color: rgba(0,0,0,0.5);
+    padding: 2.5%;
+    margin: 2.5%;
+    width: 95%;
+}
+
+.timestamp{
+    display: block;
+    text-align: right;
+}
+
+*{
+    color: white;
+}
+
+input,button{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.alert-danger{
+    background-color: #e74c3c;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+.notes{
+    overflow: auto;
+}

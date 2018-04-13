@@ -1,0 +1,49 @@
+.container{
+    margin: 1.25%;
+    padding: 1.25%;
+    width: 97.5%;
+    background-color: lightgrey;
+    border: 1px solid black;
+}
+
+.ilb{
+    width: 47.25%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.lgText{
+    font-size: 16pt;
+    margin: 1.25%;
+    padding: 1.25%;
+}
+
+textarea{
+    resize: none;
+    height: 20vh;
+}
+
+.center{
+    text-align: center;
+}
+
+.listingImg{
+    height: 100%;
+    width: 10%;
+    vertical-align: middle;
+}
+
+.listingContent{
+    height: 100%;
+    vertical-align: middle;
+}
+
+.listingUpdate{
+    height: 100%;
+    display: inline-block;
+    float: right;
+}
+
+.flex{
+    display: flex;
+}

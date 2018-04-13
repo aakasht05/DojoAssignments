@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{style}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{js}}"></script>
+</head>
+<body>
+    <input type="text" name="gold" value="{{session['gold']}}">
+
+    <div class="cont">
+        <form action="/process" method="post">
+            <h2>Farm</h2>
+            <p>(earns 10-20 gold)</p>
+            <input type="submit" name="0" value="Find Gold!">
+        </form>
+        
+        <form action="/process" method="post">
+            <h2>Cave</h2>
+            <p>(earns 5-10 gold)</p>
+            <input type="submit" name="1" value="Find Gold!">
+        </form>
+
+        <form action="/process" method="post">
+            <h2>House</h2>
+            <p>(earns 2-5 gold)</p>
+            <input type="submit" name="2" value="Find Gold!">
+        </form>
+
+        <form action="/process" method="post">
+            <h2>Casino</h2>
+            <p>(earns/takes 0-50 gold)</p>
+            <input type="submit" name="3" value="Find Gold!">
+        </form>
+    </div>
+
+    <div class="bot">
+        <span>Activities:</span>
+        <textarea>{{session['text']}}</textarea>
+    </div>
+</body>
+</html>

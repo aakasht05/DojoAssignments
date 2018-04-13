@@ -1,0 +1,15 @@
+.container{
+    margin: 2.5%;
+    padding: 2.5%;
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+}
+
+.container h2{
+    margin: 2.5%;
+}
+
+.container a{
+    color: white;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{style}}">
+</head>
+<body>
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {% for msg in msgs %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form class="grey" action="/process_login" method="post">
+        <label class="formLabel">E-mail:</label><input type="text" name="email">
+        <label class="formLabel">Password:</label><input type="password" name="password">
+
+        <input id="sub" type="submit" value="Login">
+    </form>
+</body>
+</html>

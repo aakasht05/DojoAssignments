@@ -1,0 +1,33 @@
+*{color: white;}
+
+.container{
+    margin: 2.5%;
+    padding: 2.5%;
+    width: 95%;
+}
+
+.flex{display: flex;}
+.nomargin{margin: 0;}
+.nopadding{padding: 0}
+
+.trans{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.centerText{text-align: center;}
+
+.container h2{
+    margin: 2.5%;
+}
+
+.container a{
+    color: white;
+}
+
+#battleBtn{
+    flex: none;
+    display: block;
+}
+
+.green{color: green;}
+.red{color: red;}

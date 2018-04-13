@@ -1,0 +1,41 @@
+<div class="container flex">
+    <img class="container listingImg" src="{{listing.img}}" alt="Listing Image">
+
+    <div class="container listingContent">
+        <h1>{{listing.title}}</h1>
+        <h4>{{listing.description}}</h4>
+    </div>
+
+    <div class="container listingUpdate">
+        <h1 class="center">{{listing.price | currency:"USD"}}</h1>
+        <h4 class="center">{{listing.location}}</h4>
+
+        <div *ngIf="isUserListing()" class="col-sm-12">
+            <button (click)="onDelete()" class="form-control btn btn-default">Delete</button>
+        </div>
+
+        <div id="contactModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Contact Info</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Name: {{ listing._user.firstName }} {{listing._user.lastName}}</p>
+                        <p>Email: {{listing._user.email}}</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!isUserListing()" class="col-sm-12">
+            <button type="button" class="form-control btn btn-default" data-toggle="modal" data-target="#contactModal">Contact</button>
+        </div>
+    </div>
+</div>

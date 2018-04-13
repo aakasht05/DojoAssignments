@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books Home</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <p>Welcome, {{ request.session.first_name }}</p>
+        <button><a href="/">Logout</a></button>
+        <button><a href="/books/add">Add Book and Review</a></button>
+    </div>
+    
+    {% for message in messages %}
+        {% if 'error' in message.tags %}
+            <p class="error">{{ message }}</p>
+        {% elif 'success' in message.tags %}
+            <p class="success">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <div class="leftDiv">
+        <p class="heading">Recent Book Reviews</p>
+
+        {% for review in recent_reviews %}
+            <div class="form post">
+                <a class="block" href="/books/{{ review.book_id }}">
+                    {{ review.book.title }}
+                </a>
+                
+                <br>
+
+                <p class="inlineBlock">Rating:</p>
+                {% for i in review.stars %}
+                    <img class="star inlineBlock" src="/static/app_main/img/star_gold.png">
+                {% endfor %}
+                
+                <br><br>
+                
+                <a class="inlineBlock" href="/users/{{ review.user_id }}">
+                    {{ review.user.first_name }} says:
+                </a>
+                <p>{{ review.text }}</p>
+
+                <br>
+
+                <p>Posted on {{ review.created_at.date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="rightDiv">
+        <p class="heading">Other Books with Reviews</p>
+        {% for review in reviews %}
+            <div class="form post">
+                <a href="/books/{{ review.book_id }}">
+                    {{ review.book__title }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

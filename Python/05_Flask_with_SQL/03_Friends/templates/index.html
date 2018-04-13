@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends</title>
+</head>
+<body>
+    <style type="text/css">
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+    <h1>Friends</h1>
+
+    {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+            {% for msg in msgs %}
+                <h3>{{msg}}</h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <table>
+        <tr>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Occupation:</th>
+        <tr>
+
+        {% for i in friends %}
+            <tr>
+                <td>{{i['name']}}</td>
+                <td>{{i['age']}}</td>
+                <td>{{i['friend_since']}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/new_friend" method="post">
+        <label>Name:</label><input type="text" name="name">
+        <label>Age:</label><input type="text" name="age">
+        <label>Friend Since:</label><input type="date" name="friend_since">
+        <input type="submit">
+    </form>
+</body>
+</html>

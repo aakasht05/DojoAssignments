@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    <h2>
+        Thanks for submitting this form! You've submitted this form
+        {{ request.session.submits }} times now.
+    </h2>
+
+    <div class="cont">
+        <h2>Submitted Information:</h2>
+        <h2>Name: {{request.session.first_name}}</h2>
+        <h2>Location: {{request.session.location}}</h2>
+        <h2>Language: {{request.session.language}}</h2>
+        <h2>Comment: {{request.session.comment}}</h2>
+        
+        <a href="/"><button>Go Back</button></a>
+    </div>
+</body>
+</html>

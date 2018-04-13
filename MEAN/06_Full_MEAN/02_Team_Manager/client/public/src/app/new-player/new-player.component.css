@@ -1,0 +1,34 @@
+*{
+    color: white;
+}
+
+.container{
+    margin: 2.5%;
+    padding: 0%;
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+input,button{
+    background-color: rgba(0,0,0,0);
+}
+
+.playerDiv{
+    margin: 2.5%;
+    padding: 2.5%;
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.playerDiv h2{
+    margin: 2.5%;
+    display: inline-block;
+}
+
+.playerDiv a{
+    color: white;
+}
+
+.alert{
+    background-color: red;
+}

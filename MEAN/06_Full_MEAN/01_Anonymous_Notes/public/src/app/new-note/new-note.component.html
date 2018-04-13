@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>Note</h1>
+
+    <form (submit)="onSubmit()" class="form-horizontal" #f=ngForm>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="text">Note:</label>
+            
+            <div class="col-sm-8">
+                <input
+                    required
+                    id="text"
+                    class="form-control"
+                    name="text"
+                    type="text"
+                    [minlength]="note.minlength"
+                    [maxlength]="note.maxlength"
+                    [(ngModel)]="note.text"
+                    #text="ngModel"
+                >
+            </div>
+
+            <div class="col-sm-2">
+                <button 
+                    [disabled]="!f.valid"
+                    type="submit"
+                    class="btn btn-default"
+                >Add Note</button>
+            </div>
+        </div>
+
+        <div 
+            class="alert alert-danger" *ngIf=" note.text.length < note.minlength && (text.dirty || text.touched)"
+        >Note must be at least 3 characters in length.</div>
+    </form>
+</div>

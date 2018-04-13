@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Validation</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_main/style.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+        <p class="err">{{message}}</p>
+    {% endfor %}
+
+    <form action="/process" method="post">
+        {% csrf_token %}
+        <label>Username:
+            <input type="text" name="email">
+            <input type="submit">
+        </label>
+    </form>
+</body>
+</html>

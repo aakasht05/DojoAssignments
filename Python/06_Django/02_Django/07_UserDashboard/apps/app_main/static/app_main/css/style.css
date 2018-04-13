@@ -1,0 +1,53 @@
+body{
+    background-color: rgb(220,220,220);
+}
+
+.jumbotron{
+    width: 80%;
+    margin: 1% auto;
+    padding: 32px;
+}
+
+.container{
+    width: 80%;
+}
+
+.form{
+    width: 50%;
+}
+
+.table{
+    width: 80%;
+    margin: auto;
+}
+
+#sub{
+    display: block;
+    margin-left: 87%;
+}
+
+#description{
+	height: 128px;
+	resize: none;
+}
+
+.post{
+    height: 128px;
+}
+
+.comment{
+    width: 85%;
+    height: 128px;
+    margin-left: 15%;
+    resize: none;
+}
+
+.commentBtn{
+    margin-left: 85%;
+    height: 32px;
+    width: 128px;
+}
+
+.wrap{
+    word-wrap: break-word;
+}

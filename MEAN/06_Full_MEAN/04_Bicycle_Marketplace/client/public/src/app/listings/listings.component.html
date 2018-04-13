@@ -1,0 +1,11 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <app-listing [isListing]="false"></app-listing>
+</div>
+
+<div class="container">
+    <h1>Edit/Delete Listings</h1>
+
+    <app-listing [listing]=user$.source._value.listings[ind] [isListing]="true" *ngFor="let listing of user$.source._value.listings; let ind=index"></app-listing>
+</div>

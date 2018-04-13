@@ -1,0 +1,29 @@
+<div class="container flex nopadding">
+
+    <div *ngIf="playerOne$.source._value.name.length < 1" class="container trans">
+        <h2 class="centerText">Player 1</h2>
+        <app-user (onUserEmit)="onSubmitPlayerOne($event)"></app-user>
+    </div>
+    <div *ngIf="playerOne$.source._value.name.length >= 1" class="container trans">
+        <div class="form-group">
+            <img class="avatar" src="{{playerOne$.source._value.img}}" alt="User Avatar">
+            <h1 class="centerText">{{playerOne$.source._value.name}}</h1>
+        </div>
+    </div>
+
+    <div *ngIf="playerTwo$.source._value.name.length < 1" class="container trans">
+        <h2 class="centerText">Player 2</h2>
+        <app-user (onUserEmit)="onSubmitPlayerTwo($event)"></app-user>
+    </div>
+    <div *ngIf="playerTwo$.source._value.name.length >= 1" class="container trans">
+        <div class="form-group">
+            <img class="avatar" src="{{playerTwo$.source._value.img}}" alt="User Avatar">
+            <h1 class="centerText">{{playerTwo$.source._value.name}}</h1>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-sm-10 col-sm-offset-1">
+        <button *ngIf="playerOne$.source._value.name.length >= 1 && playerTwo$.source._value.name.length >= 1" (click)="onBattle()" class="form-control trans">Battle</button>
+    </div>
+</div>
